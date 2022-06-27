@@ -1,0 +1,34 @@
+version(1);
+
+project_name = "Base ball bot";
+
+patterns = {
+    "*.cpp",
+    "*.h",
+    "*.c",
+    "*.vert",
+    "*.frag",
+    "*.glsl",
+    "*.bat",
+    "*.4coder",
+    "*.sja",
+    "*.rc"
+};
+
+load_paths = {
+    { {
+            {".", .relative = true, .recursive = true},
+        }, .os = "win"},
+};
+
+deploy_command = "deploy.bat";
+command_list = {
+    { .name = "deploy",
+        .out = "*compilation*", .footer_panel = true, .save_dirty_files = true,
+        .cmd = { 
+            {deploy_command, .os ="win"  }, 
+        }, 
+    }, 
+};
+
+fkey_command[1] = "deploy";
